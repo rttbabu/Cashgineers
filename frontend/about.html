@@ -3,15 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
+    <title>About Us - FinanceHub</title>
     <link rel="stylesheet" href="styles/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Update color scheme to red and blue */
+        .hero-section {
+            background: linear-gradient(135deg, #002b5c 0%, #ff0000 100%);
+            color: white;
+            padding: 80px 0;
+            margin-bottom: 60px;
+        }
+        .feature-card {
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            height: 100%;
+            background-color: #002b5c; /* Citi blue */
+            color: white;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        .stats-section {
+            background-color: #f8f9fa;
+            padding: 60px 0;
+        }
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ff0000; /* Citi red */
+        }
+        .team-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: 10px;
+            background: #002b5c; /* Citi blue */
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #ff0000; /* Citi red */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">Bank Dashboard</a>
+            <a class="navbar-brand fw-bold" href="index.html">FinanceHub</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -34,9 +84,167 @@
         </div>
     </nav>
 
-    <div class="container mt-5">
-        <h1>About Us</h1>
-        <p>Welcome to the Bank Dashboard! We aim to provide the best financial tools and advice to help you manage your money effectively.</p>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-4">Empowering Your Financial Future</h1>
+                    <p class="lead mb-4">At FinanceHub, we believe everyone deserves access to smart, personalized financial guidance. Our platform combines cutting-edge technology with expert insights to help you make informed decisions about your money.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Mission Section -->
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="mb-4">Our Mission</h2>
+                <p class="fs-5">To democratize financial literacy and empower individuals to take control of their financial destiny through innovative tools, personalized advice, and educational resources.</p>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="row mb-5">
+            <div class="col-12 text-center mb-5">
+                <h2>What We Offer</h2>
+                <p class="text-muted">Comprehensive financial solutions tailored to your needs</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card feature-card">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <span class="badge bg-primary fs-1">📊</span>
+                        </div>
+                        <h5 class="card-title">Smart Budgeting</h5>
+                        <p class="card-text">AI-powered budget tracking and expense categorization to help you understand where your money goes.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card feature-card">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <span class="badge bg-success fs-1">💡</span>
+                        </div>
+                        <h5 class="card-title">Investment Guidance</h5>
+                        <p class="card-text">Personalized investment recommendations based on your risk tolerance and financial goals.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card feature-card">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <span class="badge bg-warning fs-1">🎯</span>
+                        </div>
+                        <h5 class="card-title">Goal Planning</h5>
+                        <p class="card-text">Set and track financial goals with actionable steps and milestone celebrations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats-section rounded mb-5">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-3 mb-4">
+                        <div class="stat-number">10K+</div>
+                        <p class="text-muted">Active Users</p>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="stat-number">$2M+</div>
+                        <p class="text-muted">Money Saved</p>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="stat-number">95%</div>
+                        <p class="text-muted">User Satisfaction</p>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="stat-number">24/7</div>
+                        <p class="text-muted">Support Available</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Section -->
+        <div class="row mb-5">
+            <div class="col-12 text-center mb-5">
+                <h2>Meet Our Team</h2>
+                <p class="text-muted">Financial experts dedicated to your success</p>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="team-card">
+                    <div class="team-avatar">AR</div>
+                    <h5>Aryn</h5>
+                    <p class="text-muted">Lead Financial Advisor</p>
+                    <p>Expert in savings strategies and financial planning.</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="team-card">
+                    <div class="team-avatar">JO</div>
+                    <h5>John</h5>
+                    <p class="text-muted">Senior Analyst</p>
+                    <p>Specializes in data-driven investment insights.</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="team-card">
+                    <div class="team-avatar">MO</div>
+                    <h5>Mollie</h5>
+                    <p class="text-muted">Customer Relations Manager</p>
+                    <p>Focused on delivering exceptional client experiences.</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="team-card">
+                    <div class="team-avatar">AR</div>
+                    <h5>Arthi</h5>
+                    <p class="text-muted">Technology Specialist</p>
+                    <p>Innovating financial tools for modern users.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Values Section -->
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="text-center mb-4">Our Values</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <h5>🔒 Security First</h5>
+                        <p>Your financial data is protected with bank-level encryption and security protocols.</p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <h5>📚 Education</h5>
+                        <p>We believe knowledge is power. Our platform educates while it guides.</p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <h5>🤝 Transparency</h5>
+                        <p>No hidden fees, no confusing jargon. Clear, honest financial guidance.</p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <h5>🎯 Personalization</h5>
+                        <p>Every financial journey is unique. Our advice is tailored to your specific situation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <div class="bg-light p-5 rounded">
+                    <h3>Ready to Take Control of Your Finances?</h3>
+                    <p class="mb-4">Join thousands of users who have transformed their financial lives with FinanceHub.</p>
+                    <a href="apply.html" class="btn btn-primary btn-lg">Get Started Today</a>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
