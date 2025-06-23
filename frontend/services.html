@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Cashgineers</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <!-- Include Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --warning-gradient: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            --info-gradient: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            --dark-bg: #1a1a2e;
+            --card-bg: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.15) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.8rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            color: #f8f9fa !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background: var(--success-gradient);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .hero-section {
+            padding: 120px 0 80px 0;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .floating-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .floating-icon {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-icon:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .floating-icon:nth-child(2) { top: 60%; left: 80%; animation-delay: 2s; }
+        .floating-icon:nth-child(3) { top: 80%; left: 20%; animation-delay: 4s; }
+        .floating-icon:nth-child(4) { top: 30%; left: 70%; animation-delay: 1s; }
+        .floating-icon:nth-child(5) { top: 40%; left: 15%; animation-delay: 3s; }
+        .floating-icon:nth-child(6) { top: 70%; left: 60%; animation-delay: 5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .glass-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            text-align: center;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .pricing-card.featured {
+            border: 2px solid rgba(79, 172, 254, 0.5);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 900;
+            margin: 1rem 0;
+        }
+
+        .btn-primary-custom {
+            background: var(--primary-gradient);
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            color: white;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            color: white;
+        }
+
+        .btn-secondary-custom {
+            background: var(--secondary-gradient);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            color: white;
+        }
+
+        .btn-outline-custom {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-custom:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            text-align: center;
+            margin-bottom: 3rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--success-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 80px;
+            left: 50%;
+            width: 2px;
+            height: 60px;
+            background: var(--success-gradient);
+            transform: translateX(-50%);
+        }
+
+        .process-step:last-child::after {
+            display: none;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0;
+            color: rgba(255, 255, 255, 0.9);
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4facfe;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+            .hero-subtitle { font-size: 1.1rem; }
+            .process-step::after { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-coins me-2"></i>Cashgineers
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="apply.html">Apply</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="floating-icons">
+            <div class="floating-icon"><i class="fas fa-chart-line fa-3x"></i></div>
+            <div class="floating-icon"><i class="fas fa-piggy-bank fa-3x"></i></div>
+            <div class="floating-icon"><i class="fas fa-calculator fa-3x"></i></div>
+            <div class="floating-icon"><i class="fas fa-shield-alt fa-3x"></i></div>
+            <div class="floating-icon"><i class="fas fa-coins fa-3x"></i></div>
+            <div class="floating-icon"><i class="fas fa-bullseye fa-3x"></i></div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h1 class="hero-title">Our <span style="background: var(--success-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Financial Services</span></h1>
+                    <p class="hero-subtitle">Comprehensive financial solutions designed to help you achieve your goals, from budgeting and saving to investing and retirement planning.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Services Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title">Core Services</h2>
+            <p style="text-align: center; color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-bottom: 3rem;">Everything you need to take control of your financial future</p>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card text-center">
+                        <i class="service-icon fas fa-calculator" style="background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"></i>
+                        <h4 style="color: white; font-weight: 700; margin-bottom: 1rem;">Smart Budgeting</h4>
+                        <p style="color: rgba(255,255,255,0.8); margin-bottom: 1.5rem;">AI-powered budget tracking with automatic expense categorization and spending insights.</p>
+                        <ul class="feature-list text-start">
+                            <li>Automatic transaction categorization</li>
+                            <li>Spending pattern analysis</li>
+                            <li>Budget alerts and recommendations</li>
+                            <li>Monthly financial reports</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card text-center">
+                        <i class="service-icon fas fa-chart-line" style="background: var(--success-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"></i>
+                        <h4 style="color: white; font-weight: 700; margin-bottom: 1rem;">Investment Guidance</h4>
+                        <p style="color: rgba(255,255,255,0.8); margin-bottom: 1.5rem;">Personalized investment strategies based on your risk tolerance and financial goals.</p>
+                        <ul class="feature-list text-start">
+                            <li>Portfolio diversification analysis</li>
+                            <li>Risk assessment tools</li>
+                            <li>Market trend insights</li>
+                            <li>Performance tracking</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card text-center">
+                        <i class="service-icon fas fa-bullseye" style="background: var(--secondary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"></i>
+                        <h4 style="color: white; font-weight: 700; margin-bottom: 1rem;">Goal Planning</h4>
+                        <p style="color: rgba(255,255,255,0.8); margin-bottom: 1.5rem;">Set, track, and achieve your financial goals with actionable milestone planning.</p>
+                        <ul class="feature-list text-start">
+                            <li>Custom goal setting</li>
+                            <li>Progress tracking dashboard</li>
+                            <li>Milestone celebrations</li>
+                            <li>Achievement strategies</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card text-center">
+                        <i class="service-icon fas fa-shield-alt" style="background: var(--warning-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"></i>
+                        <h4 style="color: white; font-weight: 700; margin-bottom: 1rem;">Risk Management</h4>
+                        <p style="color: rgba(255,255,255,0.8); margin-bottom: 1.5rem;">Comprehensive insurance planning and emergency fund strategies.</p>
+                        <ul class="feature-list text-start">
+                            <li>Insurance needs analysis</li>
+                            <li>Emergency fund planning</li>
+                            <li>Risk tolerance assessment</li>
+                            <li>Protection strategy reviews</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card text-center">
+                        <i class="service-icon fas fa-piggy-bank" style="background: var(--info-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"></i>
+                        <h4 style="color: white; font-weight: 700; margin-bottom: 1rem;">Retirement Planning</h4>
+                        <p style="color: rgba(255,255,255,0.8); margin-bottom: 1.5rem;">Long-term retirement strategies with pension optimization and savings plans.</p>
+                        <ul class="feature-list text-start">
+                            <li>Retirement calculator tools</li>
+                            <li>Pension optimization</li>
+                            <li>Tax-efficient saving strategies</li>
+                            <li>Income replacement planning</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card text-center">
+                        <i class="service-icon fas fa-graduation-cap" style="background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"></i>
+                        <h4 style="color: white; font-weight: 700; margin-bottom: 1rem;">Financial Education</h4>
+                        <p style="color: rgba(255,255,255,0.8); margin-bottom: 1.5rem;">Comprehensive learning resources and one-on-one financial coaching sessions.</p>
+                        <ul class="feature-list text-start">
+                            <li>Interactive learning modules</li>
+                            <li>Personal coaching sessions</li>
+                            <li>Market insights newsletter</li>
+                            <li>Financial literacy assessments</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-5" style="background: rgba(26, 26, 46, 0.5); backdrop-filter: blur(10px);">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <p style="text-align: center; color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-bottom: 3rem;">Simple steps to transform your financial future</p>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h5 style="color: white; font-weight: 600;">Sign Up</h5>
+                        <p style="color: rgba(255,255,255,0.8);">Create your account and complete our comprehensive financial assessment.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h5 style="color: white; font-weight: 600;">Get Matched</h5>
+                        <p style="color: rgba(255,255,255,0.8);">Our AI matches you with personalized strategies and a dedicated advisor.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h5 style="color: white; font-weight: 600;">Plan & Track</h5>
+                        <p style="color: rgba(255,255,255,0.8);">Implement your custom financial plan with real-time tracking tools.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h5 style="color: white; font-weight: 600;">Achieve Goals</h5>
+                        <p style="color: rgba(255,255,255,0.8);">Reach your financial milestones with ongoing support and guidance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title">Choose Your Plan</h2>
+            <p style="text-align: center; color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-bottom: 3rem;">Flexible pricing options to suit your needs</p>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="pricing-card">
+                        <h4 style="color: white; font-weight: 700;">Starter</h4>
+                        <div class="price" style="background: var(--success-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Free</div>
+                        <p style="color: rgba(255,255,255,0.8); margin-bottom: 2rem;">Perfect for getting started with basic financial management</p>
+                        <ul class="feature-list text-start mb-4">
+                            <li>Basic budgeting tools</li>
+                            <li>Expense tracking</li>
+                            <li>Financial goal setting</li>
+                            <li>Educational resources</li>
+                            <li>Email support</li>
+                        </ul>
+                        <a href="apply.html" class="btn btn-outline-custom">Get Started</a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="pricing-card featured">
+                        <div style="background: var(--success-gradient); color: white; padding: 0.5rem 1rem; border-radius: 20px; display: inline-block; margin-bottom: 1rem; font-weight: 600;">Most Popular</div>
+                        <h4 style="color: white; font-weight: 700;">Professional</h4>
+                        <div class="price" style="background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">£29<span style="font-size: 1rem; color: rgba(255,255,255,0.7);">/month</span></div>
+                        <p style="color: rgba(255,255,255,0.8); margin-bottom: 2rem;">Comprehensive financial planning with expert guidance</p>
+                        <ul class="feature-list text-start mb-4">
+                            <li>All Starter features</li>
+                            <li>Investment guidance</li>
+                            <li>Retirement planning</li>
+                            <li>Risk management tools</li>
+                            <li>Monthly advisor calls</li>
+                            <li>Priority support</li>
+                        </ul>
+                        <a href="apply.html" class="btn btn-primary-custom">Start Free Trial</a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="pricing-card">
+                        <h4 style="color: white; font-weight: 700;">Premium</h4>
+                        <div class="price" style="background: var(--secondary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">£79<span style="font-size: 1rem; color: rgba(255,255,255,0.7);">/month</span></div>
+                        <p style="color: rgba(255,255,255,0.8); margin-bottom: 2rem;">Full-service financial management with dedicated support</p>
+                        <ul class="feature-list text-start mb-4">
+                            <li>All Professional features</li>
+                            <li>Dedicated advisor</li>
+                            <li>Weekly check-ins</li>
+                            <li>Tax optimization</li>
+                            <li>Estate planning</li>
+                            <li>24/7 phone support</li>
+                        </ul>
+                        <a href="apply.html" class="btn btn-secondary-custom">Contact Sales</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-5" style="background: rgba(26, 26, 46, 0.3); backdrop-filter: blur(10px);">
+        <div class="container">
+            <h2 class="section-title">Why Choose Cashgineers?</h2>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="glass-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <div style="font-size: 2.5rem; background: var(--success-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-right: 1rem;">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h5 style="color: white; font-weight: 700; margin: 0;">Expert Advisors</h5>
+                        </div>
+                        <p style="color: rgba(255,255,255,0.8);">Certified financial planners with years of experience helping clients achieve their goals.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="glass-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <div style="font-size: 2.5rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-right: 1rem;">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h5 style="color: white; font-weight: 700; margin: 0;">AI-Powered Insights</h5>
+                        </div>
+                        <p style="color: rgba(255,255,255,0.8);">Advanced algorithms analyze your spending patterns and provide personalized recommendations.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="glass-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <div style="font-size: 2.5rem; background: var(--secondary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-right: 1rem;">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h5 style="color: white; font-weight: 700; margin: 0;">Mobile-First Design</h5>
+                        </div>
+                        <p style="color: rgba(255,255,255,0.8);">Optimized for seamless use on mobile devices, ensuring accessibility and convenience anytime, anywhere.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="glass-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <div style="font-size: 2.5rem; background: var(--warning-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-right: 1rem;">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <h5 style="color: white; font-weight: 700; margin: 0;">Secure Data Protection</h5>
+                        </div>
+                        <p style="color: rgba(255,255,255,0.8);">State-of-the-art encryption and security protocols to safeguard your financial information.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
