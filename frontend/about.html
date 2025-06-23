@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cashgineers - Engineer Your Financial Future</title>
+    <title>About Us - Cashgineers</title>
     <link rel="stylesheet" href="styles/style.css">
     <!-- Include Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -75,7 +75,7 @@
         }
 
         .hero-section {
-            padding: 120px 0;
+            padding: 120px 0 80px 0;
             text-align: center;
             color: white;
             position: relative;
@@ -83,7 +83,7 @@
         }
 
         .hero-title {
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: 900;
             margin-bottom: 1.5rem;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
@@ -91,14 +91,10 @@
         }
 
         .hero-subtitle {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             margin-bottom: 2rem;
             opacity: 0.9;
             animation: fadeInUp 1s ease 0.2s both;
-        }
-
-        .hero-cta {
-            animation: fadeInUp 1s ease 0.4s both;
         }
 
         @keyframes fadeInUp {
@@ -146,6 +142,7 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            height: 100%;
         }
 
         .glass-card:hover {
@@ -233,19 +230,6 @@
             display: block;
         }
 
-        .video-container {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-
-        .video-container iframe {
-            width: 100%;
-            height: 400px;
-            border: none;
-        }
-
         .section-title {
             font-size: 2.5rem;
             font-weight: 800;
@@ -253,6 +237,20 @@
             text-align: center;
             margin-bottom: 3rem;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: white;
+            font-weight: bold;
         }
 
         .pulse {
@@ -268,7 +266,6 @@
         @media (max-width: 768px) {
             .hero-title { font-size: 2.5rem; }
             .hero-subtitle { font-size: 1.1rem; }
-            .video-container iframe { height: 250px; }
         }
     </style>
 </head>
@@ -285,10 +282,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
+                        <a class="nav-link active" aria-current="page" href="about.html">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contact</a>
@@ -304,19 +301,29 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="floating-icons">
-            <div class="floating-icon"><i class="fas fa-dollar-sign fa-3x"></i></div>
+            <div class="floating-icon"><i class="fas fa-users fa-3x"></i></div>
+            <div class="floating-icon"><i class="fas fa-lightbulb fa-3x"></i></div>
+            <div class="floating-icon"><i class="fas fa-shield-alt fa-3x"></i></div>
             <div class="floating-icon"><i class="fas fa-chart-line fa-3x"></i></div>
-            <div class="floating-icon"><i class="fas fa-piggy-bank fa-3x"></i></div>
-            <div class="floating-icon"><i class="fas fa-university fa-3x"></i></div>
         </div>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <h1 class="hero-title">Engineer Your <span style="background: var(--success-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Financial Future</span></h1>
-                    <p class="hero-subtitle">Transform your relationship with money through smart strategies, expert guidance, and cutting-edge tools designed for the next generation of wealth builders.</p>
-                    <div class="hero-cta">
-                        <a href="apply.html" class="btn btn-primary-custom btn-lg me-3 pulse">Start Your Journey</a>
-                        <a href="about.html" class="btn btn-secondary-custom btn-lg">Learn More</a>
+                    <h1 class="hero-title">Empowering Your <span style="background: var(--success-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Financial Future</span></h1>
+                    <p class="hero-subtitle">At Cashgineers, we believe everyone deserves access to smart, personalized financial guidance. Our platform combines cutting-edge technology with expert insights to help you make informed decisions about your money.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8">
+                    <div class="glass-card text-center">
+                        <h2 style="color: white; font-weight: 800; margin-bottom: 1.5rem;">Our Mission</h2>
+                        <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem;">To democratize financial literacy and empower individuals to take control of their financial destiny through innovative tools, personalized advice, and educational resources.</p>
                     </div>
                 </div>
             </div>
@@ -326,33 +333,34 @@
     <!-- Features Section -->
     <section class="py-5">
         <div class="container">
-            <h2 class="section-title">Why Choose Cashgineers?</h2>
+            <h2 class="section-title">What We Offer</h2>
+            <p style="text-align: center; color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-bottom: 3rem;">Comprehensive financial solutions tailored to your needs</p>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
-                    <div class="glass-card h-100 text-center">
+                    <div class="glass-card text-center">
                         <div class="feature-icon">
-                            <i class="fas fa-brain"></i>
+                            <i class="fas fa-chart-bar"></i>
                         </div>
-                        <h4 style="color: white; font-weight: 700;">Smart Strategies</h4>
-                        <p style="color: rgba(255,255,255,0.8);">Leverage data-driven insights and AI-powered recommendations to optimize your financial decisions and maximize your wealth potential.</p>
+                        <h4 style="color: white; font-weight: 700;">Smart Budgeting</h4>
+                        <p style="color: rgba(255,255,255,0.8);">AI-powered budget tracking and expense categorization to help you understand where your money goes.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <div class="glass-card h-100 text-center">
+                    <div class="glass-card text-center">
                         <div class="feature-icon">
-                            <i class="fas fa-users"></i>
+                            <i class="fas fa-lightbulb"></i>
                         </div>
-                        <h4 style="color: white; font-weight: 700;">Expert Guidance</h4>
-                        <p style="color: rgba(255,255,255,0.8);">Connect with certified financial advisors and industry experts who understand the unique challenges of modern wealth building.</p>
+                        <h4 style="color: white; font-weight: 700;">Investment Guidance</h4>
+                        <p style="color: rgba(255,255,255,0.8);">Personalized investment recommendations based on your risk tolerance and financial goals.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <div class="glass-card h-100 text-center">
+                    <div class="glass-card text-center">
                         <div class="feature-icon">
-                            <i class="fas fa-rocket"></i>
+                            <i class="fas fa-bullseye"></i>
                         </div>
-                        <h4 style="color: white; font-weight: 700;">Future-Ready Tools</h4>
-                        <p style="color: rgba(255,255,255,0.8);">Access cutting-edge financial technology and automation tools that work 24/7 to grow and protect your wealth.</p>
+                        <h4 style="color: white; font-weight: 700;">Goal Planning</h4>
+                        <p style="color: rgba(255,255,255,0.8);">Set and track financial goals with actionable steps and milestone celebrations.</p>
                     </div>
                 </div>
             </div>
@@ -366,57 +374,120 @@
                 <div class="col-lg-3 col-6">
                     <div class="stat-item">
                         <span class="stat-number" data-target="10000">0</span>
-                        <h5>Happy Clients</h5>
+                        <h5>Active Users</h5>
                     </div>
                 </div>
                 <div class="col-lg-3 col-6">
                     <div class="stat-item">
-                        <span class="stat-number" data-target="50">0</span>
-                        <h5>Million Saved</h5>
+                        <span class="stat-number" data-target="50000000">0</span>
+                        <h5>Pounds Saved</h5>
                     </div>
                 </div>
                 <div class="col-lg-3 col-6">
                     <div class="stat-item">
                         <span class="stat-number" data-target="98">0</span>
-                        <h5>Success Rate</h5>
+                        <h5>User Satisfaction</h5>
                     </div>
                 </div>
                 <div class="col-lg-3 col-6">
                     <div class="stat-item">
                         <span class="stat-number" data-target="24">0</span>
-                        <h5>Support Hours</h5>
+                        <h5>Support Available</h5>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Savings Advice Section -->
+    <!-- Team Section -->
     <section class="py-5">
         <div class="container">
-            <div class="row g-4 align-items-center">
+            <h2 class="section-title">Meet Our Team</h2>
+            <p style="text-align: center; color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-bottom: 3rem;">Financial experts dedicated to your success</p>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="glass-card text-center">
+                        <div class="team-avatar">JO</div>
+                        <h5 style="color: white; font-weight: 600;">Aryn</h5>
+                        <p style="color: var(--success-gradient); font-weight: 500;">Lead Financial Advisor</p>
+                        <p style="color: rgba(255,255,255,0.8);">Expert in savings strategies and financial planning.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="glass-card text-center">
+                        <div class="team-avatar">AR</div>
+                        <h5 style="color: white; font-weight: 600;">Arthi</h5>
+                        <p style="color: var(--success-gradient); font-weight: 500;">Senior Analyst</p>
+                        <p style="color: rgba(255,255,255,0.8);">Specializes in data-driven investment insights.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="glass-card text-center">
+                        <div class="team-avatar">MO</div>
+                        <h5 style="color: white; font-weight: 600;">Mollie</h5>
+                        <p style="color: var(--success-gradient); font-weight: 500;">Customer Relations Manager</p>
+                        <p style="color: rgba(255,255,255,0.8);">Focused on delivering exceptional client experiences.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="glass-card text-center">
+                        <div class="team-avatar">AR</div>
+                        <h5 style="color: white; font-weight: 600;">John</h5>
+                        <p style="color: var(--success-gradient); font-weight: 500;">Technology Specialist</p>
+                        <p style="color: rgba(255,255,255,0.8);">Innovating financial tools for modern users.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title">Our Values</h2>
+            <div class="row g-4">
                 <div class="col-lg-6">
                     <div class="glass-card">
                         <div class="d-flex align-items-center mb-3">
                             <div class="feature-icon me-3">
-                                <i class="fas fa-lightbulb"></i>
+                                <i class="fas fa-shield-alt"></i>
                             </div>
-                            <h3 style="color: white; font-weight: 700; margin: 0;">Pro Savings Tips</h3>
+                            <h5 style="color: white; font-weight: 700; margin: 0;">Security First</h5>
                         </div>
-                        <h5 style="color: white; font-weight: 600;">Master the Art of Saving</h5>
-                        <p style="color: rgba(255,255,255,0.8);">
-                            Start by setting ambitious yet achievable monthly savings goals. Track every expense with precision and identify opportunities to optimize your spending. 
-                            Automate your savings to build wealth effortlessly while you sleep.
-                        </p>
-                        <div class="d-flex gap-3">
-                            <a href="#" class="btn btn-secondary-custom">Learn Advanced Tips</a>
-                            <a href="apply.html" class="btn btn-outline-light">Get Personal Advice</a>
-                        </div>
+                        <p style="color: rgba(255,255,255,0.8);">Your financial data is protected with bank-level encryption and security protocols.</p>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/QZL7IQIzxyw?si=_sMPoRhxbbayDrDI" title="Best Student Bank Accounts" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="glass-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="feature-icon me-3">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h5 style="color: white; font-weight: 700; margin: 0;">Education</h5>
+                        </div>
+                        <p style="color: rgba(255,255,255,0.8);">We believe knowledge is power. Our platform educates while it guides.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="glass-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="feature-icon me-3">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h5 style="color: white; font-weight: 700; margin: 0;">Transparency</h5>
+                        </div>
+                        <p style="color: rgba(255,255,255,0.8);">No hidden fees, no confusing jargon. Clear, honest financial guidance.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="glass-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="feature-icon me-3">
+                                <i class="fas fa-user-cog"></i>
+                            </div>
+                            <h5 style="color: white; font-weight: 700; margin: 0;">Personalization</h5>
+                        </div>
+                        <p style="color: rgba(255,255,255,0.8);">Every financial journey is unique. Our advice is tailored to your specific situation.</p>
                     </div>
                 </div>
             </div>
@@ -429,8 +500,8 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="glass-card text-center">
-                        <h3 style="color: white; font-weight: 800; font-size: 2.2rem;">Ready to Transform Your Finances?</h3>
-                        <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-bottom: 2rem;">Join thousands of smart investors who have already started building their financial empire with Cashgineers.</p>
+                        <h3 style="color: white; font-weight: 800; font-size: 2.2rem;">Ready to Take Control of Your Finances?</h3>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-bottom: 2rem;">Join thousands of users who have transformed their financial lives with Cashgineers.</p>
                         <a href="apply.html" class="btn btn-primary-custom btn-lg pulse">Get Started Today</a>
                     </div>
                 </div>
@@ -441,7 +512,6 @@
     <!-- Include Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="scripts/app.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <script>
         // Animated counter for stats
@@ -450,9 +520,9 @@
             const increment = target / (duration / 16);
             const timer = setInterval(() => {
                 start += increment;
-                element.textContent = Math.floor(start);
+                element.textContent = start >= 1000 ? start.toLocaleString() : Math.floor(start);
                 if (start >= target) {
-                    element.textContent = target;
+                    element.textContent = target.toLocaleString();
                     clearInterval(timer);
                 }
             }, 16);
