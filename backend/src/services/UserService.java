@@ -1,3 +1,7 @@
+package services;
+
+import models.User; // Import the User class from the models package
+
 public class UserService {
     
     // Method to create a new user

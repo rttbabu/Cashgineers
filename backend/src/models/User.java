@@ -1,7 +1,17 @@
+package models;
+
 public class User {
     private int userId;
     private String name;
     private String email;
+
+    // No-argument constructor
+    public User() {
+        // Initialize fields with default values if necessary
+        this.userId = 0;
+        this.name = "";
+        this.email = "";
+    }
 
     public User(int userId, String name, String email) {
         this.userId = userId;
