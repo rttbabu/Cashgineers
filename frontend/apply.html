@@ -3,15 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apply for a Bank Account</title>
+    <title>Apply for 1-on-1 Consultation - FinanceHub</title>
     <link rel="stylesheet" href="styles/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Matching color scheme to About page */
+        .hero-section {
+            background: linear-gradient(135deg, #002b5c 0%, #ff0000 100%);
+            color: white;
+            padding: 80px 0;
+            margin-bottom: 60px;
+        }
+        
+        .application-form {
+            background-color: #f8f9fa;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+        
+        .form-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid #002b5c;
+        }
+        
+        .form-section h4 {
+            color: #002b5c;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .btn-primary {
+            background-color: #002b5c;
+            border-color: #002b5c;
+            padding: 12px 30px;
+            font-weight: bold;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #ff0000;
+            border-color: #ff0000;
+            transform: translateY(-2px);
+        }
+        
+        .form-control:focus {
+            border-color: #002b5c;
+            box-shadow: 0 0 0 0.2rem rgba(0, 43, 92, 0.25);
+        }
+        
+        .form-select:focus {
+            border-color: #002b5c;
+            box-shadow: 0 0 0 0.2rem rgba(0, 43, 92, 0.25);
+        }
+        
+        .expert-card {
+            background: #002b5c;
+            color: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .expert-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .expert-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #ff0000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 1.5rem;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .benefits-section {
+            background-color: #f8f9fa;
+            padding: 40px 0;
+            margin: 40px 0;
+            border-radius: 15px;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .benefit-icon {
+            background: #002b5c;
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .alert-info {
+            background-color: #e3f2fd;
+            border-color: #002b5c;
+            color: #002b5c;
+        }
+        
+        .required-field {
+            color: #ff0000;
+        }
+        
+        .progress-bar {
+            background-color: #002b5c;
+        }
+        
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .step {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #dee2e6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            font-weight: bold;
+            position: relative;
+        }
+        
+        .step.active {
+            background: #002b5c;
+            color: white;
+        }
+        
+        .step.completed {
+            background: #ff0000;
+            color: white;
+        }
+        
+        .step::after {
+            content: '';
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 2px;
+            background: #dee2e6;
+        }
+        
+        .step:last-child::after {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <!-- Replace the existing navbar with the updated navbar -->
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">Bank Dashboard</a>
+            <a class="navbar-brand fw-bold" href="index.html">FinanceHub</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -34,38 +202,435 @@
         </div>
     </nav>
 
-    <!-- Apply Form -->
-    <div class="container mt-5">
-        <h1 class="text-center">Apply for a Bank Account</h1>
-        <form class="mt-4">
-            <div class="mb-3">
-                <label for="fullName" class="form-label">Full Name</label>
-                <input type="text" class="form-control" id="fullName" placeholder="Enter your full name">
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-4">Book Your Personal Finance Consultation</h1>
+                    <p class="lead mb-4">Take the first step towards financial freedom with a personalized 1-on-1 session with our expert money saving advisors. Get tailored strategies designed specifically for your financial situation.</p>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email Address</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Benefits Section -->
+        <div class="benefits-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mb-4">
+                        <h2>What You'll Get From Your Consultation</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">💰</div>
+                            <div>
+                                <h6 class="mb-1">Personalized Savings Plan</h6>
+                                <small class="text-muted">Custom strategy based on your income and expenses</small>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">📊</div>
+                            <div>
+                                <h6 class="mb-1">Budget Analysis</h6>
+                                <small class="text-muted">Professional review of your spending patterns</small>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🎯</div>
+                            <div>
+                                <h6 class="mb-1">Goal Setting</h6>
+                                <small class="text-muted">Clear milestones for your financial objectives</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">📈</div>
+                            <div>
+                                <h6 class="mb-1">Investment Guidance</h6>
+                                <small class="text-muted">Smart investment options for your risk profile</small>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🔒</div>
+                            <div>
+                                <h6 class="mb-1">Debt Management</h6>
+                                <small class="text-muted">Strategies to reduce and eliminate debt</small>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">📝</div>
+                            <div>
+                                <h6 class="mb-1">Action Plan</h6>
+                                <small class="text-muted">Step-by-step guide to implement changes</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="phone" class="form-label">Phone Number</label>
-                <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number">
+        </div>
+
+        <!-- Application Form -->
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="application-form">
+                    <div class="text-center mb-4">
+                        <h2>Apply for Your Free Consultation</h2>
+                        <p class="text-muted">Complete the form below and we'll match you with the perfect financial advisor</p>
+                    </div>
+
+                    <div class="alert alert-info" role="alert">
+                        <strong>📞 Free 45-minute session</strong> - No hidden fees, no obligations. Just expert advice tailored to you.
+                    </div>
+
+                    <form id="applicationForm">
+                        <!-- Personal Information -->
+                        <div class="form-section">
+                            <h4>👤 Personal Information</h4>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="firstName" class="form-label">First Name <span class="required-field">*</span></label>
+                                    <input type="text" class="form-control" id="firstName" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="lastName" class="form-label">Last Name <span class="required-field">*</span></label>
+                                    <input type="text" class="form-control" id="lastName" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">Email Address <span class="required-field">*</span></label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="phone" class="form-label">Phone Number <span class="required-field">*</span></label>
+                                    <input type="tel" class="form-control" id="phone" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="age" class="form-label">Age Range</label>
+                                <select class="form-select" id="age">
+                                    <option selected disabled>Choose your age range</option>
+                                    <option value="18-25">18-25</option>
+                                    <option value="26-35">26-35</option>
+                                    <option value="36-45">36-45</option>
+                                    <option value="46-55">46-55</option>
+                                    <option value="56-65">56-65</option>
+                                    <option value="65+">65+</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Financial Information -->
+                        <div class="form-section">
+                            <h4>💼 Financial Overview</h4>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="income" class="form-label">Annual Income Range</label>
+                                    <select class="form-select" id="income">
+                                        <option selected disabled>Select income range</option>
+                                        <option value="under-25k">Under £25,000</option>
+                                        <option value="25k-50k">£25,000 - £50,000</option>
+                                        <option value="50k-75k">£50,000 - £75,000</option>
+                                        <option value="75k-100k">£75,000 - £100,000</option>
+                                        <option value="100k+">Over £100,000</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="savings" class="form-label">Current Savings</label>
+                                    <select class="form-select" id="savings">
+                                        <option selected disabled>Select savings range</option>
+                                        <option value="none">No savings</option>
+                                        <option value="under-1k">Under £1,000</option>
+                                        <option value="1k-5k">£1,000 - £5,000</option>
+                                        <option value="5k-20k">£5,000 - £20,000</option>
+                                        <option value="20k+">Over £20,000</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="debt" class="form-label">Current Debt Situation</label>
+                                <select class="form-select" id="debt">
+                                    <option selected disabled>Select your debt status</option>
+                                    <option value="none">No debt</option>
+                                    <option value="low">Low debt (under £5,000)</option>
+                                    <option value="moderate">Moderate debt (£5,000 - £20,000)</option>
+                                    <option value="high">High debt (over £20,000)</option>
+                                    <option value="struggling">Struggling with debt payments</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Goals and Preferences -->
+                        <div class="form-section">
+                            <h4>🎯 Your Goals</h4>
+                            <div class="mb-3">
+                                <label for="goals" class="form-label">Primary Financial Goals (Select all that apply)</label>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="emergency-fund" id="goal1">
+                                            <label class="form-check-label" for="goal1">Build emergency fund</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="save-house" id="goal2">
+                                            <label class="form-check-label" for="goal2">Save for house deposit</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="retirement" id="goal3">
+                                            <label class="form-check-label" for="goal3">Plan for retirement</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="investments" id="goal4">
+                                            <label class="form-check-label" for="goal4">Start investing</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="debt-free" id="goal5">
+                                            <label class="form-check-label" for="goal5">Become debt-free</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="budget" id="goal6">
+                                            <label class="form-check-label" for="goal6">Create a budget</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="expenses" id="goal7">
+                                            <label class="form-check-label" for="goal7">Reduce expenses</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="other" id="goal8">
+                                            <label class="form-check-label" for="goal8">Other goals</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="timeframe" class="form-label">When do you want to achieve your main goal?</label>
+                                    <select class="form-select" id="timeframe">
+                                        <option selected disabled>Select timeframe</option>
+                                        <option value="3-months">Within 3 months</option>
+                                        <option value="6-months">Within 6 months</option>
+                                        <option value="1-year">Within 1 year</option>
+                                        <option value="2-5-years">2-5 years</option>
+                                        <option value="5-years">5+ years</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="experience" class="form-label">Financial Experience Level</label>
+                                    <select class="form-select" id="experience">
+                                        <option selected disabled>Select your level</option>
+                                        <option value="beginner">Beginner</option>
+                                        <option value="some-knowledge">Some knowledge</option>
+                                        <option value="intermediate">Intermediate</option>
+                                        <option value="experienced">Experienced</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Consultation Preferences -->
+                        <div class="form-section">
+                            <h4>📅 Consultation Preferences</h4>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="consultationType" class="form-label">Preferred Consultation Type</label>
+                                    <select class="form-select" id="consultationType">
+                                        <option selected disabled>Choose consultation type</option>
+                                        <option value="video-call">Video Call (Zoom/Teams)</option>
+                                        <option value="phone-call">Phone Call</option>
+                                        <option value="in-person">In-Person (London office)</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="preferredTime" class="form-label">Preferred Time</label>
+                                    <select class="form-select" id="preferredTime">
+                                        <option selected disabled>Choose preferred time</option>
+                                        <option value="morning">Morning (9am-12pm)</option>
+                                        <option value="afternoon">Afternoon (12pm-5pm)</option>
+                                        <option value="evening">Evening (5pm-8pm)</option>
+                                        <option value="flexible">Flexible</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="urgency" class="form-label">How urgent is your financial situation?</label>
+                                <select class="form-select" id="urgency">
+                                    <option selected disabled>Select urgency level</option>
+                                    <option value="immediate">Immediate help needed</option>
+                                    <option value="soon">Within 2 weeks</option>
+                                    <option value="month">Within a month</option>
+                                    <option value="flexible">I'm flexible</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Additional Information -->
+                        <div class="form-section">
+                            <h4>📝 Additional Information</h4>
+                            <div class="mb-3">
+                                <label for="challenges" class="form-label">What are your biggest financial challenges? (Optional)</label>
+                                <textarea class="form-control" id="challenges" rows="3" placeholder="Tell us about any specific concerns or challenges you're facing..."></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="questions" class="form-label">Any specific questions for your advisor? (Optional)</label>
+                                <textarea class="form-control" id="questions" rows="3" placeholder="What would you like to discuss during your consultation?"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Expert Preference -->
+                        <div class="form-section">
+                            <h4>👥 Choose Your Preferred Expert (Optional)</h4>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="expert-card">
+                                        <div class="expert-avatar">AR</div>
+                                        <h6>Aryn</h6>
+                                        <small>Savings Specialist</small>
+                                        <div class="form-check mt-2">
+                                            <input class="form-check-input" type="radio" name="expertChoice" value="aryn" id="expertAryn">
+                                            <label class="form-check-label" for="expertAryn">Choose Aryn</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="expert-card">
+                                        <div class="expert-avatar">JO</div>
+                                        <h6>John</h6>
+                                        <small>Investment Expert</small>
+                                        <div class="form-check mt-2">
+                                            <input class="form-check-input" type="radio" name="expertChoice" value="john" id="expertJohn">
+                                            <label class="form-check-label" for="expertJohn">Choose John</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="expert-card">
+                                        <div class="expert-avatar">MO</div>
+                                        <h6>Mollie</h6>
+                                        <small>Budget Coach</small>
+                                        <div class="form-check mt-2">
+                                            <input class="form-check-input" type="radio" name="expertChoice" value="mollie" id="expertMollie">
+                                            <label class="form-check-label" for="expertMollie">Choose Mollie</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="expert-card">
+                                        <div class="expert-avatar">AR</div>
+                                        <h6>Arthi</h6>
+                                        <small>Tech & Finance</small>
+                                        <div class="form-check mt-2">
+                                            <input class="form-check-input" type="radio" name="expertChoice" value="arthi" id="expertArthi">
+                                            <label class="form-check-label" for="expertArthi">Choose Arthi</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="expertChoice" value="auto-match" id="autoMatch" checked>
+                                    <label class="form-check-label" for="autoMatch">
+                                        <strong>Auto-match me with the best expert for my needs</strong>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Terms and Submit -->
+                        <div class="form-section">
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="terms" required>
+                                <label class="form-check-label" for="terms">
+                                    I agree to the <a href="#" class="text-decoration-none">Terms of Service</a> and <a href="#" class="text-decoration-none">Privacy Policy</a> <span class="required-field">*</span>
+                                </label>
+                            </div>
+                            <div class="form-check mb-4">
+                                <input class="form-check-input" type="checkbox" id="newsletter">
+                                <label class="form-check-label" for="newsletter">
+                                    I'd like to receive financial tips and updates via email
+                                </label>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    🚀 Submit Application
+                                </button>
+                                <p class="text-muted mt-3 small">
+                                    <strong>What happens next?</strong><br>
+                                    We'll review your application within 24 hours and contact you to schedule your free consultation.
+                                </p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="address" class="form-label">Address</label>
-                <textarea class="form-control" id="address" rows="3" placeholder="Enter your address"></textarea>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto">
+                <div class="bg-light p-4 rounded">
+                    <h3 class="text-center mb-4">Frequently Asked Questions</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>❓ Is the consultation really free?</h6>
+                            <p class="small text-muted mb-3">Yes, absolutely! Your first 45-minute consultation is completely free with no strings attached.</p>
+                            
+                            <h6>❓ How long will it take to get scheduled?</h6>
+                            <p class="small text-muted mb-3">Most consultations are scheduled within 2-3 business days of application approval.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>❓ What should I bring to the consultation?</h6>
+                            <p class="small text-muted mb-3">Just yourself! We'll guide you through everything. Having recent bank statements can be helpful but isn't required.</p>
+                            
+                            <h6>❓ What if I need to reschedule?</h6>
+                            <p class="small text-muted mb-3">No problem! We offer flexible rescheduling up to 24 hours before your appointment.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="accountType" class="form-label">Account Type</label>
-                <select class="form-select" id="accountType">
-                    <option value="savings">Savings Account</option>
-                    <option value="current">Current Account</option>
-                    <option value="business">Business Account</option>
-                </select>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit Application</button>
-        </form>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Form submission handling
+        document.getElementById('applicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success message
+            const form = this;
+            const successMessage = document.createElement('div');
+            successMessage.className = 'alert alert-success text-center';
+            successMessage.innerHTML = `
+                <h4>🎉 Application Submitted Successfully!</h4>
+                <p class="mb-0">Thank you for applying! We'll review your application and contact you within 24 hours to schedule your free consultation.</p>
+            `;
+            
+            form.style.display = 'none';
+            form.parentNode.appendChild(successMessage);
+            
+            // Scroll to success message
+            successMessage.scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Form validation improvements
+        const requiredFields = document.querySelectorAll('input[required], select[required]');
+        requiredFields.forEach(field => {
+            field.addEventListener('blur', function() {
+                if (!this.value) {
+                    this.classList.add('is-invalid');
+                } else {
+                    this.classList.remove('is-invalid');
+                    this.classList.add('is-valid');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
