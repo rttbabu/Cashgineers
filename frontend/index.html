@@ -5,12 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bank Dashboard</title>
     <link rel="stylesheet" href="styles/style.css">
+    <style>
+        #side-column {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 200px;
+            height: 100%;
+            background-color: #f4f4f4;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        #side-column h3 {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        #side-column div {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        #side-column button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            width: 90%;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #side-column button:hover {
+            background-color: #0056b3;
+        }
+        header {
+            text-align: center; /* Center the header */
+            margin-left: 220px; /* Align header to the right of the column */
+        }
+        #account-balance {
+            text-align: center; /* Center the account balance section */
+            margin-left: 220px; /* Align balance to the right of the column */
+            margin-top: 20px; /* Add slight top margin for spacing */
+        }
+        #balance {
+            font-size: 1.5em; /* Make the balance more prominent */
+            font-weight: bold;
+        }
+        #spending-graph {
+            margin: 40px auto; /* Move graph slightly down */
+            text-align: center;
+            margin-left: 250px; /* Keep graph aligned to the right of the column */
+        }
+        canvas {
+            max-width: 300px; /* Condense the graph width */
+            height: 100px; /* Further reduce the graph height */
+        }
+    </style>
 </head>
 <body>
+    <div id="side-column">
+        <div>
+            <h3>Customer Name</h3>
+            <p id="customer-name">[Username]</p>
+        </div>
+        <div>
+            <button id="side-request-money">Request Money</button>
+            <button id="side-send-money">Send Money</button>
+        </div>
+        <div>
+            <h4>Card Details</h4>
+            <p id="card-details">**** **** **** ****</p>
+        </div>
+        <div>
+            <button id="logout">Log Out</button>
+        </div>
+    </div>
     <header>
         <h1>Welcome to the Bank Dashboard</h1>
     </header>
     <main>
+        <section id="account-balance">
+            <span id="balance">£0.00</span>
+        </section>
         <section id="user-info">
             <h2>User Information</h2>
             <!-- User information will be dynamically populated here -->
@@ -19,10 +98,71 @@
             <h2>Transaction History</h2>
             <!-- Transaction history will be dynamically populated here -->
         </section>
+        <section id="spending-graph">
+            <h2>Spending Comparison</h2>
+            <canvas id="spendingChart"></canvas>
+        </section>
     </main>
     <footer>
         <p>&copy; 2023 Bank Dashboard</p>
     </footer>
     <script src="scripts/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Example script to populate the customer name dynamically
+        const username = localStorage.getItem('username') || 'Guest';
+        document.getElementById('customer-name').textContent = username;
+
+        const cardDetails = localStorage.getItem('cardDetails') || '**** **** **** ****';
+        document.getElementById('card-details').textContent = cardDetails;
+
+        document.getElementById('logout').addEventListener('click', () => {
+            localStorage.clear();
+            window.location.href = 'login.html';
+        });
+
+        // Populate balance in the main dashboard
+        const balance = localStorage.getItem('balance') || '£0.00';
+        document.getElementById('balance').textContent = balance;
+
+        // Generate spending comparison line graph
+        const ctx = document.getElementById('spendingChart').getContext('2d');
+        const spendingData = {
+            labels: ['Last Month', 'This Month'],
+            datasets: [{
+                label: 'Spending (£)',
+                data: [500, 450], // Example data
+                borderColor: '#36a2eb',
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderWidth: 2,
+                tension: 0.4
+            }]
+        };
+        const spendingChart = new Chart(ctx, {
+            type: 'line',
+            data: spendingData,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const percentageChange = ((context.raw - spendingData.datasets[0].data[0]) / spendingData.datasets[0].data[0] * 100).toFixed(2);
+                                return `${context.raw} (£) (${percentageChange}% change)`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
